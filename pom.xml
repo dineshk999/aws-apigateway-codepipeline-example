@@ -35,6 +35,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>aws-apigateway-example</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -49,7 +50,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<finalName>aws-apigateway-example</finalName>
 	</build>
 
 </project>

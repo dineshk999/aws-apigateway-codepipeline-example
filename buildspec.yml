@@ -12,7 +12,6 @@ phases:
   post_build:
     commands:
       - echo Build completed
-
 artifacts:
   files:
     - target/aws-apigateway-example.jar

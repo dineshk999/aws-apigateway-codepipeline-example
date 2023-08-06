@@ -49,6 +49,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>aws-apigateway-example</finalName>
 	</build>
 
 </project>

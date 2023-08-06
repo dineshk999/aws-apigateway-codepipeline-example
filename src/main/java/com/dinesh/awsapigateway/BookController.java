@@ -2,13 +2,12 @@ package com.dinesh.awsapigateway;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 @RestController
 public class BookController {
@@ -23,6 +22,13 @@ public class BookController {
 
     @GetMapping()
     public ResponseEntity<List<Book>> getBooks(){
+        return new ResponseEntity<>(books, HttpStatus.OK);
+    }
+
+    @DeleteMapping("delete-book/{id}")
+    public ResponseEntity<List<Book>> deleteBook(@PathVariable int id){
+        Predicate<Book> removeBook = book -> (book.getId() != id);
+        books = books.stream().filter(removeBook).collect(Collectors.toList());
         return new ResponseEntity<>(books, HttpStatus.OK);
     }
 }

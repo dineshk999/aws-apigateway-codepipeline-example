@@ -31,4 +31,12 @@ public class BookController {
         books = books.stream().filter(removeBook).collect(Collectors.toList());
         return new ResponseEntity<>(books, HttpStatus.OK);
     }
+
+    @PutMapping("/update")
+    public ResponseEntity<List<Book>> updateBook(@RequestBody Book book){
+        Predicate<Book> removeBook = b -> (b.getId() != book.getId());
+        books = books.stream().filter(removeBook).collect(Collectors.toList());
+        books.add(book);
+        return new ResponseEntity<>(books, HttpStatus.OK);
+    }
 }
